@@ -1,0 +1,26 @@
+ion-content {
+    --background: url(../../assets/bg.jpg) no-repeat center/cover fixed;
+    font-size: 24px;
+}
+
+ion-toolbar {
+    --background: rgba(248, 248, 248, 0.55);
+}
+
+ion-col,
+ion-col h1,
+ion-col p {
+    color: #fff;
+    text-align: center;
+    text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.4);
+}
+
+h1 {
+    font-size: 72px;
+}
+
+p {
+    font-size: 36px;
+    margin-top: 0;
+}
+

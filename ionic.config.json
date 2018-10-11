@@ -1,0 +1,7 @@
+{
+  "name": "IonicWeather",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
