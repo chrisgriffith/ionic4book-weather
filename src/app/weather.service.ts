@@ -9,8 +9,8 @@ import { CurrentLoc } from './current-loc';
 })
 
 export class WeatherService {
-  // private _dataURL = 'assets/data.json';
-  private _dataURL = '/forecast/<KEY>/';
+  private _dataURL = 'assets/data.json';
+  // private _dataURL = '/forecast/<KEY>/';
   // private _dataURL = 'https://api.darksky.net/forecast/<KEY>/37.8267,-122.4233';
 
   private _weatherData: Array<any>;
