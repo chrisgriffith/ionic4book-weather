@@ -8,8 +8,8 @@
       </ion-header>
       <ion-content>
         <ion-list>
-          <ion-menu-toggle *ngFor="let p of appPages">
-            <ion-item [routerDirection]="'root'" [routerLink]="[p.url]" [queryParams]="{ lat: [p.lat], lon: [p.lon], title: [p.title]}">
+          <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages">
+              <ion-item [routerDirection]="'root'" [routerLink]="[p.url]" [queryParams]="{ lat: [p.lat], lon: [p.lon], title: [p.title]}">
               <ion-icon slot="start" [name]="p.icon"></ion-icon>
               <ion-label>
                 {{p.title}}
@@ -21,7 +21,7 @@
       <ion-footer>
         <ion-toolbar color="dark">
           <p text-center><a target="_blank" rel="noopener" href="https://darksky.net/poweredby/">
-            <img src="./assets/poweredby-oneline-darkbackground.png"></a></p>
+              <img src="./assets/poweredby-oneline-darkbackground.png"></a></p>
         </ion-toolbar>
       </ion-footer>
     </ion-menu>

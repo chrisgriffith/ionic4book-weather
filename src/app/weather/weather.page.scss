@@ -3,10 +3,6 @@ ion-content {
     font-size: 24px;
 }
 
-ion-toolbar {
-    --background: rgba(248, 248, 248, 0.55);
-}
-
 ion-col,
 ion-col h1,
 ion-col p {
@@ -24,3 +20,6 @@ p {
     margin-top: 0;
 }
 
+ion-toolbar {
+    --background: rgba(248, 248, 248, 0.55);
+}

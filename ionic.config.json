@@ -1,5 +1,5 @@
 {
-  "name": "IonicWeather",
+  "name": "ionic4book-weather",
   "integrations": {
     "cordova": {}
   },

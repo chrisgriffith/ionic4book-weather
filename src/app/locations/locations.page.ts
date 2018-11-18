@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AlertController, Events } from '@ionic/angular';
 import { LocationsService } from '../locations.service';
 import { WeatherLocation } from '../weather-location';
-import { GeoCodeService } from '../geo-code.service';
+import { GeoCodeService } from '../geocode.service';
 
 @Component({
   selector: 'app-locations',

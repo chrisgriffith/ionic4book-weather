@@ -34,11 +34,11 @@ export class WeatherPage implements OnInit {
     const options = {
       enableHighAccuracy: true, timeout: 60000, maximumAge: 0
     };
+
     this.route.queryParams.subscribe(params => {
-      if ((params.lat === null) || (params.lat === undefined)) {
+      if ((params.lat === 'null') || (params.lat === undefined)) {
         this.pageTitle = 'Current Location';
         this.geolocation.getCurrentPosition(options).then(pos => {
-          console.log('lat: ' + pos.coords.latitude + ', lon: ' + pos.coords.longitude);
           this.currentLoc.lat = pos.coords.latitude;
           this.currentLoc.lon = pos.coords.longitude;
           this.currentLoc.timestamp = pos.timestamp;

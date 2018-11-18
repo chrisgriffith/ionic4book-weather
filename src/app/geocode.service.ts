@@ -8,6 +8,7 @@ import { WeatherLocation } from './weather-location';
 export class GeoCodeService {
   // geoCodedata: WeatherLocation;
   apikey: String = '';
+
   constructor(private http: HttpClient) { }
 
   getLatLong(address: string) {
