@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { AlertController, Events } from '@ionic/angular';
-import { LocationsService } from '../locations.service';
 import { WeatherLocation } from '../weather-location';
-import { GeoCodeService } from '../geocode.service';
+import { LocationsService } from '../locations.service';
+import { GeocodeService } from '../geocode.service';
+import { AlertController, Events } from '@ionic/angular';
 
 @Component({
   selector: 'app-locations',
@@ -12,24 +12,20 @@ import { GeoCodeService } from '../geocode.service';
 export class LocationsPage implements OnInit {
   public locs: Array<WeatherLocation>;
 
-  constructor(
-    public locationsService: LocationsService,
-    public alertCtlr: AlertController,
-    public geoCodeService: GeoCodeService,
-    public events: Events
-  ) {
-
-    // locationsService.getLocations().then(res => {
-    //   this.locs = res;
-    // });
-
-    locationsService.locations$.subscribe( ( locs: Array<WeatherLocation> ) => {
-      this.locs = locs;
-    });
-
-  }
+  constructor(private locationsService: LocationsService,
+    private alertCtlr: AlertController,
+    private geoCodeService: GeocodeService,
+    private events: Events) { }
 
   ngOnInit() {
+    // this.locationsService.getLocations().then(res => {
+    //   this.locs = res;
+    // });
+    this.locationsService.locations$
+      .subscribe((locs: Array<WeatherLocation>) => {
+        this.locs = locs;
+      });
+
   }
 
   deleteLocation(loc) {
@@ -59,7 +55,6 @@ export class LocationsPage implements OnInit {
         }, {
           text: 'Ok',
           handler: data => {
-            // Array
             if (data.cityName !== '') {
               this.reverseGeoCode(data.cityName);
             }
@@ -73,12 +68,14 @@ export class LocationsPage implements OnInit {
     this.geoCodeService.getLatLong(theCityName)
       .then(res => {
         const newLoc: WeatherLocation = {
+          id: 0,
           title: '',
           url: '/weather',
           icon: 'pin',
           lat: 0,
           lon: 0
         };
+        newLoc.id = res.lat;
         newLoc.title = res.title;
         newLoc.lat = res.lat;
         newLoc.lon = res.lon;
@@ -88,4 +85,6 @@ export class LocationsPage implements OnInit {
         console.log(err);
       });
   }
+
+
 }

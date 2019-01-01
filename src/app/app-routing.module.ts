@@ -4,11 +4,11 @@ import { Routes, RouterModule } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'weather',
+    redirectTo: 'weather/0',
     pathMatch: 'full'
   },
-  { path: 'weather', loadChildren: './weather/weather.module#WeatherPageModule' },
-  { path: 'locations', loadChildren: './locations/locations.module#LocationsPageModule' }
+  { path: 'weather/:id', loadChildren: './weather/weather.module#WeatherPageModule' },
+  { path: 'locations/:id', loadChildren: './locations/locations.module#LocationsPageModule' }
 ];
 
 @NgModule({
@@ -16,3 +16,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+

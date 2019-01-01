@@ -6,25 +6,27 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { LocationsService } from './locations.service';
 import { WeatherLocation } from './weather-location';
 
+
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html'
 })
 export class AppComponent {
-  public appPages: Array<WeatherLocation>;
+  private appPages: Array<WeatherLocation>;
 
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
     private locationsService: LocationsService,
-    public events: Events
+    private events: Events
   ) {
     this.initializeApp();
     this.getMyLocations();
     // events.subscribe('locations:updated', (data) => {
     //   this.getMyLocations();
     // });
+
   }
 
   initializeApp() {
@@ -34,48 +36,43 @@ export class AppComponent {
     });
   }
 
-  // getMyLocations() {
-  //   this.locationsService.getLocations().then(res => {
-  //     this.appPages = [
-  //       {
-  //         title: 'Edit Locations',
-  //         url: '/locations',
-  //         icon: 'create'
-  //       },
-  //       {
-  //         title: 'Current Location',
-  //         url: '/weather',
-  //         icon: 'pin',
-  //         lat: null,
-  //         lon: null
-  //       }
-  //     ];
-  //     for (const newLoc of res) {
-  //       this.appPages.push(newLoc);
-  //     }
-  //   });
-  // }
-
   getMyLocations() {
+    // this.locationsService.getLocations().then(locs => {
+    //   this.appPages = [
+    //     {
+    //       id: 0,
+    //       title: 'Edit Locations',
+    //       url: '/locations',
+    //       icon: 'create'
+    //     },
+    //     {
+    //       id: 0,
+    //       title: 'Current Location',
+    //       url: '/weather',
+    //       icon: 'pin'
+    //     }
+    //   ];
+    //   this.appPages = this.appPages.concat(locs);
+    // });
+
     this.locationsService.locations$.subscribe((locs: Array<WeatherLocation>) => {
       this.appPages = [
         {
+          id: 0,
           title: 'Edit Locations',
           url: '/locations',
           icon: 'create'
         },
         {
+          id: 0,
           title: 'Current Location',
           url: '/weather',
-          icon: 'pin',
-          lat: null,
-          lon: null
+          icon: 'pin'
         }
       ];
-      for (const newLoc of locs) {
-        this.appPages.push(newLoc);
-      }
+      this.appPages = this.appPages.concat(locs);
     });
+
   }
 
 }

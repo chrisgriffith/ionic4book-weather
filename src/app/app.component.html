@@ -9,7 +9,7 @@
       <ion-content>
         <ion-list>
           <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages">
-              <ion-item [routerDirection]="'root'" [routerLink]="[p.url]" [queryParams]="{ lat: [p.lat], lon: [p.lon], title: [p.title]}">
+            <ion-item [routerDirection]="'root'" [routerLink]="[p.url, p.id]" [queryParams]="{ lat: p.lat, lon: p.lon, title: p.title}">
               <ion-icon slot="start" [name]="p.icon"></ion-icon>
               <ion-label>
                 {{p.title}}
@@ -24,6 +24,7 @@
               <img src="./assets/poweredby-oneline-darkbackground.png"></a></p>
         </ion-toolbar>
       </ion-footer>
+
     </ion-menu>
     <ion-router-outlet main></ion-router-outlet>
   </ion-split-pane>

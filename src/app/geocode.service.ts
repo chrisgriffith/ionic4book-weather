@@ -5,9 +5,8 @@ import { WeatherLocation } from './weather-location';
 @Injectable({
   providedIn: 'root'
 })
-export class GeoCodeService {
-  // geoCodedata: WeatherLocation;
-  apikey: String = '';
+export class GeocodeService {
+  apikey: String = 'YOUR-API-KEY';
 
   constructor(private http: HttpClient) { }
 
@@ -18,6 +17,7 @@ export class GeoCodeService {
         .subscribe(response => {
           if (response.status === 'OK') {
             resolve({
+              id: response.results[0].geometry.location.lat,
               title: response.results[0].formatted_address,
               url: '/weather',
               icon: 'pin',
@@ -31,5 +31,5 @@ export class GeoCodeService {
         });
     });
   }
-}
 
+}

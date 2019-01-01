@@ -7,12 +7,13 @@ import { Observable, BehaviorSubject } from 'rxjs';
 })
 export class LocationsService {
   locations: Array<WeatherLocation>;
-  locationsSubject: BehaviorSubject<Array<WeatherLocation>> =  new BehaviorSubject([]);
-  locations$: Observable<Array<WeatherLocation>> =  this.locationsSubject.asObservable();
+  locationsSubject: BehaviorSubject<Array<WeatherLocation>> = new BehaviorSubject([]);
+  locations$: Observable<Array<WeatherLocation>> = this.locationsSubject.asObservable();
 
   constructor() {
     this.locations = [
       {
+        id: 28.3922,
         title: 'Cape Canaveral, FL',
         url: '/weather',
         icon: 'pin',
@@ -20,6 +21,7 @@ export class LocationsService {
         lon: -80.6077
       },
       {
+        id: 37.7749,
         title: 'San Francisco, CA',
         url: '/weather',
         icon: 'pin',
@@ -27,6 +29,7 @@ export class LocationsService {
         lon: -122.4194
       },
       {
+        id: 49.2827,
         title: 'Vancouver, BC',
         url: '/weather',
         icon: 'pin',
@@ -34,6 +37,7 @@ export class LocationsService {
         lon: -123.1207
       },
       {
+        id: 43.0742365,
         title: 'Madison, WI',
         url: '/weather',
         icon: 'pin',
