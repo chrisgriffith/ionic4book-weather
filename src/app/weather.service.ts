@@ -12,8 +12,10 @@ export class WeatherService {
   // Local Data
   // private _dataURL = 'assets/data.json';
   // Development
-  private _dataURL = '/forecast/YOUR-API-KEY/';
-    private _currentLoc: CurrentLoc = { lat: null, lon: null, timestamp: null };
+  private _dataURL = '/forecast/<API-KEY>/';
+  // Production
+  // private _dataURL = 'https://api.darksky.net/forecast/<API-KEY>/';
+  private _currentLoc: CurrentLoc = { lat: null, lon: null, timestamp: null };
   private _weatherData: Array<any>;
 
   constructor(private http: HttpClient) {
