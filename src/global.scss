@@ -9,3 +9,26 @@
 @import '~@ionic/angular/css/text-alignment.css';
 @import '~@ionic/angular/css/text-transformation.css';
 @import '~@ionic/angular/css/flex-utils.css';
+
+body {
+    background: url(/assets/bg.jpg) no-repeat center/cover fixed;
+    font-size: 24px;
+}
+ion-content {
+    --background: none;
+}
+
+.refresher-md .refresher-pulling-icon,
+.refresher-md .refresher-pulling-text,
+.refresher-md .refresher-refreshing-icon,
+.refresher-md .refresher-refreshing-text,
+.refresher-ios .refresher-pulling-icon,
+.refresher-ios .refresher-pulling-text,
+.refresher-ios .refresher-refreshing-icon,
+.refresher-ios .refresher-refreshing-text{
+    color: #fff;
+}
+
+.refresher-refreshing-icon ion-spinner {
+    --color: #fff;
+}
